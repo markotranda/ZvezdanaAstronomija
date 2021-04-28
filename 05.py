@@ -9,7 +9,7 @@ def ukupna_magnituda(magnitude):
 
 
 def main():
-    m = [5, 6, 10, 7]
+    m = [5, 6, 10, 7, 3, 1, 10]
     print(ukupna_magnituda(m))  
 
 
