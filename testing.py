@@ -8,3 +8,5 @@ print("Vx, Vy, Vz", Vx, Vy, Vz)
 
 vR, vAlfa, vDelta = ekv2astroTriedar(Vx, Vy, Vz, alfa, delta)
 print("vR, vAlfa, vDelta", vR, vAlfa, vDelta)
+
+### komentar
