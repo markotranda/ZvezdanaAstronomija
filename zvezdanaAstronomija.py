@@ -89,6 +89,7 @@ def deg2decDeg(deg, minut, sec):
         return deg - minut/60 - sec/3600
 
 ###
+
 def ukupna_magnituda(magnitude):
     # const c
     c = 2.51188643150958
@@ -96,4 +97,23 @@ def ukupna_magnituda(magnitude):
     magnituda_grupe = magnituda_ukupna - 2.5*np.log(np.sum(c**(magnituda_ukupna - magnitude)))
     return magnituda_grupe
 
-    
+###
+
+def astroTriedar2ekv(vR, vAlfa, vDelta, alfa, delta):
+    R = [[np.cos(alfa)*np.cos(delta), -np.sin(alfa), -np.cos(alfa)*np.sin(delta)],
+         [np.sin(alfa)*np.cos(delta), np.cos(alfa), -np.sin(alfa)*np.sin(delta)],
+         [np.sin(delta), 0, np.cos(alfa)]
+        ]
+    Vx, Vy, Vz = np.dot(R, [vR, vAlfa, vDelta])
+
+    return Vx, Vy, Vz
+
+
+def ekv2astroTriedar(Vx, Vy, Vz, alfa, delta):
+    R1 = [ [np.cos(alfa)*np.cos(delta),  np.sin(alfa)*np.cos(delta),  np.sin(delta)],
+           [-np.sin(alfa), np.cos(alfa),  0],
+           [-np.cos(alfa)*np.sin(delta), -np.sin(alfa)*np.sin(delta), np.cos(delta)]
+         ]
+    vR, vAlfa, vDelta = np.dot(R1, [ Vx, Vy, Vz])
+
+    return vR, vAlfa, vDelta
