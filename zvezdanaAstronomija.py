@@ -11,6 +11,7 @@ tetaG = 123  # deg
 alfaOm = np.deg2rad(282.86)
 inklinacija = np.deg2rad(62.87)
 lOm = np.deg2rad(32.93)
+C = 4.738 # konverzija au/god u km/s
 
 
 def izracunajApsolutnuMagnitudu(prividnaMagnituda, paralaksa):
