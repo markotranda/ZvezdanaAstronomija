@@ -117,3 +117,10 @@ def ekv2astroTriedar(Vx, Vy, Vz, alfa, delta):
     vR, vAlfa, vDelta = np.dot(R1, [ Vx, Vy, Vz])
 
     return vR, vAlfa, vDelta
+
+###
+
+def izracunajRastojanjeJata(radijalnaBrzina, sopstvenoKretanje, ugaoBrzine):
+    rastojanje = np.sum(radijalnaBrzina*sopstvenoKretanje*ugaoBrzine) / (C * np.sum(sopstvenoKretanje**2))
+    return rastojanje
+
